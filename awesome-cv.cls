@@ -311,6 +311,9 @@
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
 
+% Usage: \medium{<medium handle>}
+\newcommand*{\medium}[1]{\def\@medium{#1}}
+
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
 \newcommand*{\skype}[1]{\def\@skype{#1}}
@@ -488,6 +491,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
+        }%
+      \ifthenelse{\isundefined{\@medium}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://medium.com/\@medium}{\faMedium\acvHeaderIconSep\@medium}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
