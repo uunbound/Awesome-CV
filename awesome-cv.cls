@@ -145,6 +145,11 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
+\definecolor{awesome-indigo}{HTML}{3F51B5}
+\definecolor{awesome-amber}{HTML}{FFC107}
+\definecolor{awesome-bluegrey}{HTML}{607D8B}
+\definecolor{awesome-deeporange}{HTML}{FF5722}
+\definecolor{awesome-deeppurple}{HTML}{673AB7}
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
@@ -635,6 +640,18 @@
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+}
+
+% Define a patent entry of cv information
+% Usage: \cvpatententry{<title>}{<authors>}{<patent no.>}{<date>}{<link>}
+\newcommand*{\cvpatententry}[5]{%
+  %\vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \entrytitlestyle{#1} & \entrylocationstyle{#3 (\href{#5}{link})} \\
+    \descriptionstyle{#2} & \entrydatestyle{#4}
+  \end{tabular*}%
 }
 
 % Define an environment for cvitems(for cventry)
