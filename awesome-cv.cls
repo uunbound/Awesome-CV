@@ -145,11 +145,6 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
-\definecolor{awesome-indigo}{HTML}{3F51B5}
-\definecolor{awesome-amber}{HTML}{FFC107}
-\definecolor{awesome-bluegrey}{HTML}{607D8B}
-\definecolor{awesome-deeporange}{HTML}{FF5722}
-\definecolor{awesome-deeppurple}{HTML}{673AB7}
 \colorlet{awesome}{awesome-red}
 
 % Boolean value to switch section color highlighting
@@ -166,9 +161,9 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
-\newfontfamily\headerfont[
+\setfontfamily\headerfont[
   Path=\@fontdir,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
@@ -176,7 +171,7 @@
   BoldItalicFont=*-BoldItalic,
 ]{Roboto}
 
-\newfontfamily\headerfontlight[
+\setfontfamily\headerfontlight[
   Path=\@fontdir,
   UprightFont=*-Thin,
   ItalicFont=*-ThinItalic,
@@ -275,7 +270,7 @@
 \newcommand*{\address}[1]{\def\@address{#1}}
 
 % Define writer's position
-% Usage: \name{<position>}
+% Usage: \position{<position>}
 \newcommand*{\position}[1]{\def\@position{#1}}
 
 % Defines writer's mobile (optional)
@@ -283,7 +278,7 @@
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
 
 % Defines writer's email (optional)
-% Usage: \email{<email adress>}
+% Usage: \email{<email address>}
 \newcommand*{\email}[1]{\def\@email{#1}}
 
 % Defines writer's homepage (optional)
@@ -308,11 +303,9 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
+% Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
-
-% Usage: \medium{<medium handle>}
-\newcommand*{\medium}[1]{\def\@medium{#1}}
 
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
@@ -326,7 +319,25 @@
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
 
-% Defines writer's twitter (optional)
+% Defines writer's medium profile (optional)
+% Usage: \medium{<medium account>}
+\newcommand*{\medium}[1]{\def\@medium{#1}}
+
+% Defines writer's google scholar profile (optional)
+% Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
+% e.g.https://scholar.google.co.uk/citations?user=wpZDx1cAAAAJ
+% would be \googlescholar{wpZDx1cAAAAJ}{Name-to-display-next-icon}
+% If 'googlescholar-name' is not provided than it defaults to
+% '\firstname \lastname'
+\newcommand*{\googlescholar}[2]{%
+  \def\@googlescholarid{#1}%
+  \ifthenelse{\equal{#2}{}}{%
+    \def\@googlescholarname{\@firstname~\@lastname}%
+  }{%
+    \def\@googlescholarname{#2}%
+  }%
+}
+
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
@@ -492,12 +503,6 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
         }%
-      \ifthenelse{\isundefined{\@medium}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://medium.com/\@medium}{\faMedium\acvHeaderIconSep\@medium}%
-        }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
         {%
@@ -515,6 +520,18 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.xing.com/profile/\@xing}{\faXingSquare\acvHeaderIconSep\@xing}
+        }%
+      \ifthenelse{\isundefined{\@medium}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://medium.com/@\@medium}{\faMedium\acvHeaderIconSep\@medium}%
+        }%
+      \ifthenelse{\isundefined{\@googlescholarid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
@@ -649,18 +666,6 @@
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
-}
-
-% Define a patent entry of cv information
-% Usage: \cvpatententry{<title>}{<authors>}{<patent no.>}{<date>}{<link>}
-\newcommand*{\cvpatententry}[5]{%
-  %\vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \entrytitlestyle{#1} & \entrylocationstyle{#3 (\href{#5}{link})} \\
-    \descriptionstyle{#2} & \entrydatestyle{#4}
-  \end{tabular*}%
 }
 
 % Define an environment for cvitems(for cventry)
