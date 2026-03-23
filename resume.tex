@@ -1,0 +1,69 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{awesome-cv}
+
+% Tighter margins for single-page layout
+\geometry{left=1.2cm, top=.8cm, right=1.2cm, bottom=1.2cm, footskip=.4cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+\colorlet{awesome}{awesome-red}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\photo[rectangle,edge,right]{./profile.png}
+\name{Peyman}{Shojaei}
+\position{CTO \& Co-Founder{\enskip\cdotp\enskip}AI-Native Software Engineer}
+\address{Amsterdam, The Netherlands}
+
+\mobile{(+31) 6 81 39 98 43}
+\email{peyman@xecolabs.com}
+\homepage{xecolabs.com}
+\linkedin{peymanshojaei}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {\today}
+  {Peyman Shojaei~~~·~~~Résumé}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%-------------------------------------------------------------------------------
+\input{resume/summary.tex}
+\input{resume/experience.tex}
+\input{resume/skills.tex}
+\input{resume/education.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
