@@ -6,7 +6,7 @@ LaTeX-based CV and resume built on the [Awesome-CV](https://github.com/posquit0/
 
 ```
 ├── cv.tex              # Full curriculum vitae (3 pages)
-├── resume.tex          # Focused resume (2 pages)
+├── resume.tex          # Focused 1-page resume
 ├── cv/                 # CV section files
 │   ├── experience.tex
 │   ├── skills.tex
@@ -18,18 +18,16 @@ LaTeX-based CV and resume built on the [Awesome-CV](https://github.com/posquit0/
 │   ├── summary.tex
 │   ├── experience.tex
 │   ├── skills.tex
-│   ├── education.tex
-│   └── honors.tex
+│   └── education.tex
 ├── awesome-cv.cls      # Template class file
-├── fontawesome.sty     # FontAwesome icon bindings
-├── fonts/              # Bundled fonts (Roboto, FontAwesome)
-├── profile.jpg         # Profile photo
+├── fonts/              # Bundled fonts (Roboto)
+├── profile.png         # Profile photo
 └── justfile            # Build recipes
 ```
 
 ## Requirements
 
-A full TeX distribution with XeLaTeX. [TeX Live](https://www.tug.org/texlive/) is recommended.
+A full TeX distribution with XeLaTeX. [TeX Live](https://www.tug.org/texlive/) 2025+ is recommended (for FontAwesome 6 support).
 
 - **macOS:** `brew install --cask mactex`
 - **Ubuntu/Debian:** `sudo apt-get install texlive-full`
