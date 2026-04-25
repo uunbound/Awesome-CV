@@ -46,6 +46,16 @@ The `awesome-cv.cls` includes cherry-picked fixes from [posquit0/Awesome-CV](htt
 - **FontAwesome 6:** Upgraded from bundled v4 to system `fontawesome6` package
 - **cventry spacing:** Uses `\ifstrempty` to skip empty description rows
 
+## External References
+
+LinkedIn is the canonical source for career content (experience, education, honors, patents). When syncing, fetch live with the **claude-in-chrome MCP** (`mcp__claude-in-chrome__*`). LinkedIn lazy-loads older experience entries — scroll to the bottom via `javascript_tool` before extracting page text, otherwise older roles are missing from the scrape.
+
+- Profile: https://www.linkedin.com/in/peymanshojaei/
+- Experience: https://www.linkedin.com/in/peymanshojaei/details/experience/
+- Education: https://www.linkedin.com/in/peymanshojaei/details/education/
+- Honors: https://www.linkedin.com/in/peymanshojaei/details/honors/
+- Patents: https://www.linkedin.com/in/peymanshojaei/details/patents/
+
 ## Common Tasks
 
 - **Update experience:** Edit `cv/experience.tex` (full) and `resume/experience.tex` (condensed)
